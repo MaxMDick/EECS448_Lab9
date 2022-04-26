@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise3</title>
+    <style>
+        body {
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bakery</h1>
+    <form name="bakeryForm" action="customerBackend.php" method="GET" onsubmit="formChecker()">
+        <h3>Login:</h3>
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required><br>
+    
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br>
+
+        <h3>Order:</h3>
+
+        <label for="cookies">Number of $1 cookies:</label>
+        <select id="cookies" name="cookies">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+
+        <br>
+        <label for="pies">Number of $2 pies:</label>
+        <select id="pies" name="pies">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+
+        <br>
+        <label for="cakes">Number of $3 cakes:</label>
+        <select id="cakes" name="cakes">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+
+        <h3>Shipping Options:</h3>
+        <input type="radio" name="ship" id="free7Day" value="a" required>
+        <label for="free7day">Free 7 day</label><br>
+        <input type="radio" name="ship" id="50overNight" value="b">
+        <label for="50overNight">$50 over night</label><br>
+        <input type="radio" name="ship" id="5threeDay" value="c">
+        <label for="5threeDay">$5 three day</label><br>
+
+        <br>
+        <input type="reset">
+        <br>
+        <input type="submit" value="Submit Order">
+    </form>
+
+    <script>
+        function formChecker()
+        {
+            let username = document.forms["bakeryForm"]["username"].value;
+            //console.log(username.substring(username.length - 4, username.length));
+            if(username.includes('@'))
+            {
+                return true;
+            }
+            else if(username.substring(username.length - 4, username.length) == ".com")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
